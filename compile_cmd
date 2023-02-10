@@ -1,0 +1,1 @@
+riscv64-linux-gnu-gcc --verbose -march=rv64imafd a.c -o a

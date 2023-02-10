@@ -1,0 +1,57 @@
+<title>a try</title>
+<head>
+    <script src="long.js"></script>
+    <script src="bigintenger.js"></script>
+    <script src="utils.js"></script>
+    <script src="system_call.js"></script>
+    <script src="command.js"></script>
+    <script src="loadelf.js"></script>
+    <script src="CPU.js"></script>
+    <script src="inst.js"></script>
+    <script src="term.js"></script>
+    <style>
+        p.small{margin: 1px};
+    </style>
+</head>
+<body>
+    <div id="left" style="float:left">
+        upload file: <input type="file" id="file" >
+        <button type="button" onclick="start_cpu()">Click to start</button>
+        <button type="button" id="nxt" onclick="print_flag=1;cpu.run_inst()">next</button>
+        <button type="button" id="run_until_break" onclick="cpu.run_until_break()">run until break</button>
+        <p>
+            Enter breakpoint: <input type="text" id="break point">
+            <button  type="button" onclick="add_breakpoint()">add</button>
+        </p>
+        <p>
+            Enter command: <input type="text" id="command">
+            <button  type="button" onclick="handle_command()">add</button>
+        </p>
+        <p id="info">unstarted</p>
+        <p id="current instruction">No instruction</p>
+        <p id="term"> </p>
+    </div>
+    <div id="status" style="float:left;margin:10px;">
+        <p id="cpu status">
+            <!-- unstarted -->
+        </p>
+    </div>
+    <div id="status2" style="float:left;margin:10px;">
+        <p id="cpu status2">
+        </p>
+    </div>
+    <div id="mem" style="float:left;margin:30px"> </div>
+    <div id="right" style="float:left;margin:30px">
+        <p id="stack"></p>
+    </div>
+</body>
+<script>
+    term = new Terminal({
+                        cols: 80,
+                        rows: 22,
+                        cursorBlink: true,
+                        useStyle: true,
+                        } );
+    term.open(document.getElementById("term"));
+    // term.write("hello, term!\n\r");
+</script>

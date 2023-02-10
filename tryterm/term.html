@@ -1,0 +1,26 @@
+<title>bare term</title>
+<head>
+    <script src="term.js"></script>
+    <style type="text/css">
+        .terminal{
+            background-color: cornsilk;
+            color: darkgray;
+            font-family: Monaco, Consolas, Lucida Console, monospace;
+            font-size: 110%;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div id="term" class="terminal"> </div> -->
+    <div id="term" style="background-color:cornsilk; color:darkgray; font-size: 110%;"> </div>
+</body>
+<script>
+    term = new Terminal({
+                        cols: 129,
+                        rows: 35,
+                        cursorBlink: true,
+                        useStyle: true,
+                        } );
+    term.open(document.getElementById("term"));
+    term.write("hello, term!");
+</script>
